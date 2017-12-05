@@ -10,41 +10,59 @@ namespace PangaAutomaat
     {
         static void Main(string[] args)
         {
+            //Sellega näeb unicode'i nagu tm sümbol ja õ
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
             LogiSisse logisisse = new LogiSisse();
             UusKonto uuskonto = new UusKonto();
 
-            Console.WriteLine("Tere tulemast Parimasse automaati™, kas tahate logida sisse või luua uus konto");
-            Console.WriteLine("* logi sisse");
-            Console.WriteLine("* uus konto");
-            Console.WriteLine("* väljuda");
-            string vastus = Console.ReadLine();
-
-            if (vastus == "logi sisse")
+            while (true)
             {
-                Console.WriteLine("Mis on teie konto nimi?");
-                string nimi = Console.ReadLine();
-                bool KõikKorras = false;
-                int pin = 0;
-                while (KõikKorras == false)
+                Console.WriteLine("---------------------------------------------------------------------------");
+                Console.WriteLine("Tere tulemast Parimasse automaati™, kas tahate logida sisse või luua uus konto");
+                Console.WriteLine("* Logi sisse");
+                Console.WriteLine("* Uus konto");
+                Console.WriteLine("* Lõpetada");
+                Console.WriteLine("---------------------------------------------------------------------------");
+                Console.WriteLine();
+                string vastus = Console.ReadLine();
+
+                if (vastus == "logi sisse" || vastus == "Logi sisse" || vastus == "login")
                 {
-                    Console.WriteLine("Mis on teie konto PIN?");
-                    pin = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Mis on teie konto nimi?");
+                    string nimi = Console.ReadLine();
+                    bool KõikKorras = false;
+                    int pin = 0;
 
-                    if (pin < 1000 || pin > 9999)
+                    while (KõikKorras == false)
                     {
-                        Console.WriteLine("PIN peab olema 4 kohaline arv");
+                        Console.WriteLine("Mis on teie konto PIN?");
+                        pin = Convert.ToInt32(Console.ReadLine());
+
+                        if (pin < 1000 || pin > 9999)
+                        {
+                            Console.WriteLine("PIN peab olema 4 kohaline arv");
+                        }
+                        else
+                        {
+                            KõikKorras = true;
+                        }
                     }
-                    else
-                    {
-                        KõikKorras = true;
-                    }
+                    string konto = nimi + pin;
+                    logisisse.logimine(konto, nimi);
+                    vastus = "abc";
                 }
-                string konto = nimi + pin;
-                logisisse.logimine(konto, nimi);
-            }
-            else if (vastus == "uus konto")
-            {
-                uuskonto.loomine();
+
+                else if (vastus == "uus konto" || vastus == "Uus konto")
+                {
+                    uuskonto.loomine();
+                    vastus = "abc";
+                }
+
+                else
+                {
+                    break;
+                }
             }
         }
     }

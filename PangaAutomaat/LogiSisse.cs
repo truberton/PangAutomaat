@@ -9,18 +9,20 @@ namespace PangaAutomaat
 {
     class LogiSisse
     {
-        Sisse sisse = new Sisse();
-        Välja välja = new Välja();
-
         public string tegu;
         public virtual void logimine(string konto, string nimi)
         {
+            Sisse sisse = new Sisse();
+            Välja välja = new Välja();
+
             string path = Directory.GetCurrentDirectory() + "kontod.txt";
-            string rahapath = Directory.GetCurrentDirectory() + nimi + ".txt";
+            string rahapath = Directory.GetCurrentDirectory() + nimi;
             bool olemas;
+
             if (File.Exists(path))
             {
                 olemas = File.ReadAllText(path).Contains(konto);
+
                 while (true)
                 {
                     if (olemas)
@@ -44,6 +46,11 @@ namespace PangaAutomaat
                         {
                             break;
                         }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Konto ei eksisteeri või sisestasite vale nime/PIN");
+                        break;
                     }
                 }
             }
