@@ -12,7 +12,6 @@ namespace PangaAutomaat
         {
             LogiSisse logisisse = new LogiSisse();
             UusKonto uuskonto = new UusKonto();
-            Sisse sisse = new Sisse();
 
             Console.WriteLine("Tere tulemast Parimasse automaati™, kas tahate logida sisse või luua uus konto");
             Console.WriteLine("* logi sisse");
@@ -30,6 +29,7 @@ namespace PangaAutomaat
                 {
                     Console.WriteLine("Mis on teie konto PIN?");
                     pin = Convert.ToInt32(Console.ReadLine());
+
                     if (pin < 1000 || pin > 9999)
                     {
                         Console.WriteLine("PIN peab olema 4 kohaline arv");
@@ -41,10 +41,6 @@ namespace PangaAutomaat
                 }
                 string konto = nimi + pin;
                 logisisse.logimine(konto, nimi);
-                if (logisisse.tegu == "sisse")
-                {
-                    sisse.sisse(nimi);
-                }
             }
             else if (vastus == "uus konto")
             {
