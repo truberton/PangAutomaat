@@ -45,6 +45,7 @@
     <Compile Include="LogiSisse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sisse.cs" />
     <Compile Include="UusKonto.cs" />
   </ItemGroup>
   <ItemGroup>

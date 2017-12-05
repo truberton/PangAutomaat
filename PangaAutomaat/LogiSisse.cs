@@ -9,6 +9,7 @@ namespace PangaAutomaat
 {
     class LogiSisse
     {
+        public string tegu;
         public virtual void logimine(string konto, string nimi)
         {
             string path = Directory.GetCurrentDirectory() + "kontod.txt";
@@ -20,6 +21,10 @@ namespace PangaAutomaat
                 if (olemas == true)
                 {
                     Console.WriteLine("Teie kontol on: " + File.ReadAllText(rahapath) + " eurot");
+                    Console.WriteLine("Kas soovite raha sisse panna või välja võtta?");
+                    Console.WriteLine("* Sisse");
+                    Console.WriteLine("* Välja");
+                    tegu = Console.ReadLine();
                 }
             }
         }

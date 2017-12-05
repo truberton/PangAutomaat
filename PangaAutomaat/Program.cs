@@ -12,6 +12,7 @@ namespace PangaAutomaat
         {
             LogiSisse logisisse = new LogiSisse();
             UusKonto uuskonto = new UusKonto();
+            Sisse sisse = new Sisse();
 
             Console.WriteLine("Tere tulemast Parimasse automaati™, kas tahate logida sisse või luua uus konto");
             Console.WriteLine("* logi sisse");
@@ -40,6 +41,10 @@ namespace PangaAutomaat
                 }
                 string konto = nimi + pin;
                 logisisse.logimine(konto, nimi);
+                if (logisisse.tegu == "sisse")
+                {
+                    sisse.sisse(nimi);
+                }
             }
             else if (vastus == "uus konto")
             {
