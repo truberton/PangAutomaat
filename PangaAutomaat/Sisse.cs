@@ -13,9 +13,9 @@ namespace PangaAutomaat
         {
             string rahapath = Directory.GetCurrentDirectory() + nimi + ".txt";
             Console.WriteLine("Palju soovite sisse panna?");
-            int sisse = Convert.ToInt32(Console.ReadLine());
-            int sees = Convert.ToInt32(File.ReadAllText(rahapath));
-            int summa = sees + sisse;
+            double sisse = Convert.ToDouble(Console.ReadLine());
+            double sees = Convert.ToDouble(File.ReadAllText(rahapath));
+            double summa = sees + sisse;
             File.WriteAllText(rahapath, Convert.ToString(summa));
         }
     }

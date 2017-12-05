@@ -17,7 +17,7 @@ namespace PangaAutomaat
             string nimi = Console.ReadLine();
             bool KõikKorras = false;
             int pin = 0;
-            while (KõikKorras == false)
+            while (!KõikKorras)
             {
                 Console.WriteLine("Mis on teie konto PIN?");
                 pin = Convert.ToInt32(Console.ReadLine());
@@ -34,7 +34,7 @@ namespace PangaAutomaat
             File.AppendAllText(path, info);
             string rahapath = Directory.GetCurrentDirectory() + nimi + ".txt";
             Console.WriteLine("Palju teil raha on?");
-            int raha = Convert.ToInt32(Console.ReadLine());
+            double raha = Convert.ToDouble(Console.ReadLine());
             File.WriteAllText(rahapath, Convert.ToString(raha));
         }
     }

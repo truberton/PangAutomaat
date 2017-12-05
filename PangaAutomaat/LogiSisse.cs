@@ -18,7 +18,7 @@ namespace PangaAutomaat
             if (File.Exists(path))
             {
                 olemas = File.ReadAllText(path).Contains(konto);
-                if (olemas == true)
+                if (olemas)
                 {
                     Console.WriteLine("Teie kontol on: " + File.ReadAllText(rahapath) + " eurot");
                     Console.WriteLine("Kas soovite raha sisse panna või välja võtta?");
