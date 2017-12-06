@@ -72,9 +72,13 @@ namespace PangaAutomaat
                     vastus = "abc";
                 }
 
-                else
+                else if (vastus == "Lõpetada" || vastus == "lõpetada" || vastus == "Lopetada")
                 {
                     break;
+                }
+                else
+                {
+                    Console.WriteLine("Palun sisestage midagi valikutest");
                 }
             }
         }

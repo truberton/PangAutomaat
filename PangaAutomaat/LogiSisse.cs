@@ -43,9 +43,13 @@ namespace PangaAutomaat
                         {
                             välja.välja(nimi);
                         }
-                        else
+                        else if (tegu == "Lõpetada" || tegu == "Lopetada" || tegu == "lõpetada" || tegu == "lopetada")
                         {
                             break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Palun valige midagi valikust");
                         }
                     }
                     else
