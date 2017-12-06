@@ -11,7 +11,7 @@ namespace PangaAutomaat
     {
         public string tegu;
 
-        public virtual void logimine(string konto, string nimi)
+        public void logimine(string konto, string nimi)
         {
             Sisse sisse = new Sisse();
             Välja välja = new Välja();
