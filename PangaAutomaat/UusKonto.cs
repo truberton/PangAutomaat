@@ -13,6 +13,7 @@ namespace PangaAutomaat
         {
             string path = Directory.GetCurrentDirectory() + "kontod.txt";
             string nimi;
+
             while (true)
             {
                 Console.WriteLine("Mis on teie konto nimi?");

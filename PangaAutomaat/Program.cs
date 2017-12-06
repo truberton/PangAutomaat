@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace PangaAutomaat
 {
@@ -15,6 +16,13 @@ namespace PangaAutomaat
 
             LogiSisse logisisse = new LogiSisse();
             UusKonto uuskonto = new UusKonto();
+
+            string path = Directory.GetCurrentDirectory() + "kontod.txt";
+
+            if (!File.Exists(path))
+            {
+                File.WriteAllText(path, "");
+            }
 
             while (true)
             {
@@ -34,7 +42,7 @@ namespace PangaAutomaat
                     bool KõikKorras = false;
                     int pin = 0;
 
-                    while (KõikKorras == false)
+                    while (!KõikKorras)
                     {
                         Console.WriteLine("Mis on teie konto PIN?");
                         pin = Convert.ToInt32(Console.ReadLine());
@@ -45,10 +53,15 @@ namespace PangaAutomaat
                         }
                         else
                         {
-                            KõikKorras = true;
+                            break;
                         }
                     }
                     string konto = nimi + pin;
+                    if (!File.Exists(Directory.GetCurrentDirectory() + nimi))
+                    {
+                        Console.WriteLine("Teie raha kadus kuskile ära, olete tagasi nullis");
+                        File.WriteAllText(Directory.GetCurrentDirectory() + nimi, "0");
+                    }
                     logisisse.logimine(konto, nimi);
                     vastus = "abc";
                 }
