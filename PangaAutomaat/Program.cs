@@ -63,13 +63,11 @@ namespace PangaAutomaat
                         File.WriteAllText(Directory.GetCurrentDirectory() + nimi, "0");
                     }
                     logisisse.logimine(konto, nimi);
-                    vastus = "abc";
                 }
 
                 else if (vastus == "uus konto" || vastus == "Uus konto")
                 {
                     uuskonto.loomine();
-                    vastus = "abc";
                 }
 
                 else if (vastus == "Lõpetada" || vastus == "lõpetada" || vastus == "Lopetada")
