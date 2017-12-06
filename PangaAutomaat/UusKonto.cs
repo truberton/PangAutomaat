@@ -12,9 +12,20 @@ namespace PangaAutomaat
         public void loomine()
         {
             string path = Directory.GetCurrentDirectory() + "kontod.txt";
-
-            Console.WriteLine("Mis on teie konto nimi?");
-            string nimi = Console.ReadLine();
+            string nimi;
+            while (true)
+            {
+                Console.WriteLine("Mis on teie konto nimi?");
+                nimi = Console.ReadLine();
+                if (File.ReadAllText(path).Contains(nimi))
+                {
+                    Console.WriteLine("See konto juba eksisteerib, palun valige teine nimi");
+                }
+                else
+                {
+                    break;
+                }
+            }
             bool KõikKorras = false;
             int pin = 0;
 
